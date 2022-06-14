@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import { readdirSync } from "fs";
 
 const morgan = require("morgan");
 
@@ -18,9 +19,9 @@ app.use(morgan("dev"));
 // });
 
 // route 
-app.get("/",    (req, res) => {
-    res.send("you hit server endpoint");
-});
+fs.readdirSync('./routes').map((r) => 
+    app.use('/api', require(`./routes/${r}`))
+);
 
 // port 
 const port = process.env.PORT || 8000;
