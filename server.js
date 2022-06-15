@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { readdirSync } from "fs";
-
+// import { readdirSync } from "fs";
+import fs from "fs";
 const morgan = require("morgan");
 
 require("dotenv").config();
